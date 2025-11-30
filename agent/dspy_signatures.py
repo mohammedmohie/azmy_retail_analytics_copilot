@@ -1,29 +1,13 @@
 """
 Azmy Retail Analytics Copilot
 DSPy signatures and modules for the hybrid agent
-Author: Azmy
 """
 import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 import json
 
-# Add project root to path and import mocks
-project_root = Path(__file__).parent.parent
-sys.path.insert(0, str(project_root))
-
-try:
-    # Import mock dependencies if needed
-    import mock_deps
-except ImportError:
-    pass
-
-try:
-    import dspy
-except ImportError:
-    # Use mock implementation
-    import mock_deps
-    dspy = mock_deps.MockDSPy()
+import dspy
 
 
 class RouterSignature(dspy.Signature):

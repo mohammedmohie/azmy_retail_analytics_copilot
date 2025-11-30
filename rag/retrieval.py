@@ -1,7 +1,6 @@
 """
 Azmy Retail Analytics Copilot
 RAG retrieval system using TF-IDF for local document search
-Author: Azmy
 """
 import os
 import re
@@ -11,49 +10,8 @@ from typing import List, Dict, Any, Tuple
 import numpy as np
 import logging
 
-# Add project root to path and import mocks
-project_root = Path(__file__).parent.parent
-sys.path.insert(0, str(project_root))
-
-try:
-    # Import mock dependencies if needed
-    import mock_deps
-except ImportError:
-    pass
-
-try:
-    from sklearn.feature_extraction.text import TfidfVectorizer
-    from sklearn.metrics.pairwise import cosine_similarity
-except ImportError:
-    # Use mock implementations
-    try:
-        from mock_deps import MockTfidfVectorizer as TfidfVectorizer, mock_cosine_similarity
-        cosine_similarity = mock_cosine_similarity
-    except ImportError:
-        # Fallback mock implementations inline
-        class TfidfVectorizer:
-            def __init__(self, **kwargs):
-                self.features = 100
-                self.fitted = False
-            
-            def fit_transform(self, texts):
-                import numpy as np
-                self.fitted = True
-                return np.random.random((len(texts), self.features))
-            
-            def transform(self, texts):
-                import numpy as np
-                if not self.fitted:
-                    self.fitted = True
-                return np.random.random((len(texts), self.features))
-        
-        def cosine_similarity(a, b):
-            import numpy as np
-            if len(a.shape) == 1:
-                a = a.reshape(1, -1)
-            if len(b.shape) == 1:
-                b = b.reshape(1, -1)
-            return np.random.random((a.shape[0], b.shape[0]))
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 class DocumentChunk:

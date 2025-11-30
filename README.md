@@ -1,8 +1,6 @@
 # Azmy Retail Analytics Copilot
 
-**Author: Azmy**
-
-A local AI agent that answers retail analytics questions by combining RAG over local docs with SQL over Northwind SQLite database.
+A local AI agent named **Azmy** that answers retail analytics questions by combining RAG over local docs with SQL over Northwind SQLite database.
 
 ## Graph Design
 

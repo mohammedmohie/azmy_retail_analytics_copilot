@@ -1,7 +1,6 @@
 """
 Azmy Retail Analytics Copilot
 SQLite tool for database access and schema introspection
-Author: Azmy
 """
 import sqlite3
 import pandas as pd

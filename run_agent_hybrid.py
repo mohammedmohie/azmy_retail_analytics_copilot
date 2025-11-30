@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 Azmy Retail Analytics Copilot
-Main entrypoint for the Azmy Retail Analytics Copilot
-Author: Azmy
+Main entrypoint
 """
 import json
 import logging

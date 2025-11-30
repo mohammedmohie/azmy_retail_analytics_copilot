@@ -1,7 +1,6 @@
 """
 Azmy Retail Analytics Copilot
-LangGraph hybrid agent implementation for Azmy Retail Analytics Copilot
-Author: Azmy
+LangGraph hybrid agent implementation
 """
 import json
 import logging
@@ -11,21 +10,7 @@ from datetime import datetime
 import sqlite3
 import os
 
-try:
-    from langgraph.graph import StateGraph, END
-except ImportError:
-    # Fallback for older versions
-    try:
-        from langgraph import StateGraph, END
-    except ImportError:
-        print("Warning: LangGraph not available")
-        class StateGraph:
-            def __init__(self, state_schema): pass
-            def add_node(self, name, func): pass
-            def add_edge(self, start, end): pass
-            def set_entry_point(self, node): pass
-            def compile(self): return self
-        END = "__end__"
+from langgraph.graph import StateGraph, END
 
 import sys
 from pathlib import Path
